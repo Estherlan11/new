@@ -18,22 +18,22 @@ def app():
 )
     
 
-    df1 = pd.read_csv('/web/s2283650/datasets/national and regional hospital.csv',
+    df1 = pd.read_csv('/home/lrx0914/csv/national and regional hospital.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
-    df2 = pd.read_csv('/web/s2283650/datasets/hospital.csv',
+    df2 = pd.read_csv('/home/lrx0914/csv/hospital.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
-    df3 = pd.read_csv('/web/s2283650/datasets/hospital_II.csv',
+    df3 = pd.read_csv('/home/lrx0914/csv/hospital_II.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
-    df4 = pd.read_csv('/web/s2283650/datasets/h_III.csv',
+    df4 = pd.read_csv('/home/lrx0914/csv/h_III.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
-    df5 = pd.read_csv('/web/s2283650/datasets/h_IV.csv',
+    df5 = pd.read_csv('/home/lrx0914/csv/h_IV.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
-    df6 = pd.read_csv('/web/s2283650/datasets/clinic.csv',
+    df6 = pd.read_csv('/home/lrx0914/csv/clinic.csv',
                           usecols=['Facility name', 'Facility type', 'Lat', 'Long'])
 
     options = ['National and Regional Hospital', 'Hospital', 'Health Centre II',
@@ -70,7 +70,7 @@ def app():
             if 'Clinic' in selectbox:
                 m.add_points_from_xy(df6, layer_name="Clinic", x="Long", y="Lat")
 
-    boundry = '/web/s2283650/datasets/boundry.geojson'
+    boundry = '/home/lrx0914/boundry.geojson'
 
     m.add_geojson(boundry, layer_name="Boundary")
 
