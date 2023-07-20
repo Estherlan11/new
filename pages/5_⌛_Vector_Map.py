@@ -45,11 +45,13 @@ def gdf_to_shp(gdf, name):
 def save_file():
    
         file_paths = [
-            "Walking_only_travel_time",
-            "IV_travel_time",
+            "Travel Time to Hospital",
+            "Travel Time to Level II Health centre & Hospital",
+            "Travel Time to Level III Health centre & Hospital",
+            "Travel Time to Level IV Health centre & Hospital"
         ]
         ds_name = st.sidebar.selectbox(label="Select a dataset", options=file_paths)
-        gdf = gpd.read_file("E:\\polygon_layer\\"+ds_name+".geojson")
+        gdf = gpd.read_file("/web/s2283650/datasets/"+ds_name+".geojson")
 
         with tab2:
             col1, col2 = st.columns([3, 2])
@@ -58,7 +60,7 @@ def save_file():
             with col2:
                 st.pyplot(gdf.plot().figure)
 
-        zip = gdf_to_shp(gdf, "E:\\"+ds_name+".geojson")
+        zip = gdf_to_shp(gdf, "/home/s2283650/Downloads/"+ds_name+".geojson")
 
         with st.empty():
             with open(zip, "rb") as file:
@@ -171,7 +173,7 @@ def app():
                     {}
                 ).addTo(map);
 
-        var url1 ="http://127.0.0.1:8080/geoserver/gwc/service/tms/1.0.0/mock1%3ATT_H_II@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+        var url1 ="http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3ATT_H_II@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
     
         var vectorTileOptions1 = {
         interactive: true, 
@@ -208,14 +210,14 @@ def app():
                     {}
                 ).addTo(map);
 
-        var url2 = "http://127.0.0.1:8080/geoserver/gwc/service/tms/1.0.0/mock1%3ATT_H_III@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+        var url2 = "http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3ATT_H_IIIV@EPSG%3A900913@pbf /{z}/{x}/{y}.pbf"
         
         var vectorTileOptions2 = {
         interactive: true, 
         layerURL: url2, 
         tms: true,
         rendererFactory: L.canvas.tile,
-        vectorTileLayerStyles: {'TT_H_III':
+        vectorTileLayerStyles: {'TT_H_IIIV':
                     {
                     color: 'green',
                     width: 1,
@@ -246,7 +248,7 @@ def app():
                     {}
                 ).addTo(map);
 
-        var url3 = "http://127.0.0.1:8080/geoserver/gwc/service/tms/1.0.0/mock1%3AIV@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+        var url3 = "http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3AIV@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
     
         var vectorTileOptions3 = {
         interactive: true, 
@@ -305,7 +307,7 @@ def app():
         
     )
         with col2:
-            st.markdown('1')
+            st.markdown('test')
 
 if __name__ == "__main__":
     app()

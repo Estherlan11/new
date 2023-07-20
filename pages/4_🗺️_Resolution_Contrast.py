@@ -15,8 +15,8 @@ def app():
                     measure_control=False,
                     attribution_control=True)
     
-    left_layer = folium.WmsTileLayer(url = 'http://localhost:8080/geoserver/wms?',
-                            layers = 'mock1:Uganda_100_tra',
+    left_layer = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
+                            layers = 'data:Uganda_100_tra',
                             transparent = True, 
                             control = True,
                             version = '1.1.1',
@@ -26,8 +26,8 @@ def app():
                             show = True,
                             )
 
-    right_layer = folium.WmsTileLayer(url = 'http://localhost:8080/geoserver/wms?',
-                            layers = 'mock1:walk_1000',
+    right_layer = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
+                            layers = 'data:Uganda_1km_tra',
                             transparent = True, 
                             control = True,
                             version = '1.1.0',
@@ -43,7 +43,7 @@ def app():
         m.to_streamlit(width=700, height=650)
     
     with col2:
-        st.markdown()
+        st.markdown('test')
   
 
     
