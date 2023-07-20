@@ -51,7 +51,7 @@ def save_file():
             "Travel Time to Level IV Health centre & Hospital"
         ]
         ds_name = st.sidebar.selectbox(label="Select a dataset", options=file_paths)
-        gdf = gpd.read_file("/web/s2283650/datasets/"+ds_name+".geojson")
+        gdf = gpd.read_file("/home/lrx0914/geojsonfile/"+ds_name+".geojson")
 
         with tab2:
             col1, col2 = st.columns([3, 2])
