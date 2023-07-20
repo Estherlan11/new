@@ -60,7 +60,7 @@ def save_file():
             with col2:
                 st.pyplot(gdf.plot().figure)
 
-        zip = gdf_to_shp(gdf, "/home/s2283650/Downloads/"+ds_name+".geojson")
+        zip = gdf_to_shp(gdf, "/home/lrx0914/"+ds_name+".geojson")
 
         with st.empty():
             with open(zip, "rb") as file:
