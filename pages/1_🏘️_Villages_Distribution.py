@@ -17,12 +17,12 @@ def app():
                     measure_control=False,
                     attribution_control=True)
 
-    df = pd.read_csv('/web/s2283650/datasets/villages.csv', 
+    df = pd.read_csv('/home/lrx0914/csv/villages.csv', 
                             usecols=['FULL_NAME', 'POINT_X', 'POINT_Y'])
             
     m.add_points_from_xy(df, x="POINT_X", y="POINT_Y")
 
-    boundry = '/web/s2283650/datasets/boundry.geojson' 
+    boundry = '/home/lrx0914/boundry.geojson' 
 
     m.add_geojson(boundry, layer_name="Boundary")
     
