@@ -45,9 +45,9 @@ def gdf_to_shp(gdf, name):
 def save_file():
    
         file_paths = [
-            "Travel Time to Hospital",
-            "Travel Time to Level II Health centre & Hospital",
-            "Travel Time to Level III Health centre & Hospital",
+            "Travel Time to any Health Facility",
+            "Travel Time to Level III Health centre",
+            "Travel Time to Level IV Health centre",
             "Travel Time to Level IV Health centre & Hospital"
         ]
         ds_name = st.sidebar.selectbox(label="Select a dataset", options=file_paths)
@@ -173,14 +173,14 @@ def app():
                     {}
                 ).addTo(map);
 
-        var url1 ="http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3ATT_H_II@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+        var url1 ="http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3Aallh@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
     
         var vectorTileOptions1 = {
         interactive: true, 
         layerURL: url1, 
         tms: true,
         rendererFactory: L.canvas.tile,
-        vectorTileLayerStyles: {'TT_H_II':
+        vectorTileLayerStyles: {'allh':
                     {
                     color: '#2C99FC',
                     width: 1,
@@ -281,15 +281,52 @@ def app():
     });
 
 
+      var layer4 = L.featureGroup(
+                    {}
+                ).addTo(map);
+
+        var url4 = "http://34.147.148.225:8080/geoserver/gwc/service/tms/1.0.0/data%3Ah4_h@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+        
+        var vectorTileOptions4 = {
+        interactive: true, 
+        layerURL: url4, 
+        tms: true,
+        rendererFactory: L.canvas.tile,
+        vectorTileLayerStyles: {'h4_h':
+                    {
+                    color: 'yellow',
+                    width: 1,
+                }
+                },        
+
+        getFeatureId: function(f) {
+        return f.properties.osm_id;
+        }
+    };
+            
+            
+    var tile_layer_4 = L.vectorGrid.protobuf(
+                url4, vectorTileOptions4)
+                .addTo(layer4);
+
+        tile_layer_4.on("mouseover", e => {
+
+    var properties = e.layer.properties;
+        L.popup()
+        .setContent("<b>Town_name:</b> &nbsp"+properties.NAME_3+"<br>"+ "<b>Tavel Time:</b>&nbsp"+properties.MEAN)
+        .setLatLng(e.latlng)
+        .openOn(map);
+    });
 
     var outlayer = {
                     base_layers : {
                         "openstreetmap" : basemap,
                     },
                     overlays :  {
-                        "Hostipal II" : layer1,
-                        "Hostipal III" : layer2,
-                        "Hostipal IV" : layer3
+                        "Any Health Facility" : layer1,
+                        "Health Centre III" : layer2,
+                        "Health Center IV" : layer3,
+                        "Health Center IV and Hospital" : layer4,
                     },
                 };
                 L.control.layers(
