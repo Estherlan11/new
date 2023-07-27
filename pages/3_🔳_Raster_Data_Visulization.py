@@ -15,12 +15,10 @@ def app():
                     draw_control=False,
                     measure_control=False,
                     attribution_control=True)
-   
-    fg1 = folium.FeatureGroup(name='Walking only travel time', control=True)
 
 
     layer1 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:Uganda_100_tra',
+                        layers = 'data:Uganda_100',
                         transparent = True, 
                         control = True,
                         version = '1.1.1',
@@ -29,22 +27,11 @@ def app():
                         overlay = True,
                         show = True,
                         )
-    fg2 = folium.FeatureGroup(name='Health centre & Hospital', control=True)
+    fg1 = folium.FeatureGroup(name='All Health Facilities', control=True)
+    
     
     layer2 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:hos',
-                        transparent = True, 
-                        control = True,
-                        version = '1.1.1',
-                        fmt="image/png",
-                        name = 'raster',
-                        overlay = True,
-                        show = True,
-                        )
-    fg3 = folium.FeatureGroup(name='Level II health centre & Hospital', control=True)
-    
-    layer3 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:hos_II',
+                        layers = 'data:hos_III',
                         transparent = True, 
                         control = True,
                         version = '1.0.0',
@@ -54,22 +41,9 @@ def app():
                         show = True,
                         )
     
-    fg4 = folium.FeatureGroup(name='Level III health centre & Hospital', control=True)
+    fg2 = folium.FeatureGroup(name='Level III health centre', control=True)
 
-    layer4 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:hos_III',
-                        transparent = True, 
-                        control = True,
-                        version = '1.1.1',
-                        fmt="image/png",
-                        name = 'raster',
-                        overlay = True,
-                        show = True,
-                        )
-    
-    fg5 = folium.FeatureGroup(name='Level IV health centre & Hospital', control=True)
-    
-    layer5 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
+    layer3 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
                         layers = 'data:hos_IV',
                         transparent = True, 
                         control = True,
@@ -80,86 +54,95 @@ def app():
                         show = True,
                         )
     
+    f3 = folium.FeatureGroup(name='Level IV health centre', control=True)
+    
+    layer4 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
+                        layers = 'data:h4h',
+                        transparent = True, 
+                        control = True,
+                        version = '1.1.1',
+                        fmt="image/png",
+                        name = 'raster',
+                        overlay = True,
+                        show = True,
+                        )
+    f4 = folium.FeatureGroup(name='Level IV health centre & Hospital', control=True)
+    
     fg1.add_child(layer1).add_to(m)
     fg2.add_child(layer2).add_to(m)
     fg3.add_child(layer3).add_to(m)
     fg4.add_child(layer4).add_to(m)
-    fg5.add_child(layer5).add_to(m)
 
 
 
     legend_dict1 = {
-    '<= 12026.40': '#d7191c',
-    '12026.40-18344.96': '#e85b3b',
-    '18344.96-24200.21': '#f99d59',
-    '24200.21-30106.90': '#fec980',
-    '30106.90-36445.49': '#ffedaa',
-    '36445.49-43745.91': '#ecf7b9',
-    '43745.91-52346.50': '#c7e8ad',
-    '52346.50-64005.56': '#9fd6aa',
-    '64005.56-97798.92': '#6dbac3',
-    '> 97798.92': '#3b9edc',
+    '<= 39.45': '#d7191c',
+    '39.45 - 59.76': '#e85b3b',
+    '59.76 - 79.89': '#f99d59',
+    '79.89 - 98.57': '#fec980',
+    '98.57 - 118.48': '#ffedaa',
+    '118.48 - 142.98': '#ecf7b9',
+    '142.98 - 182.67': '#c7e8ad',
+    '182.67 - 336.82': '#9fd6aa',
+    '336.82 - 594.12': '#6dbac3',
+    '> 594.12': '#3b9edc',
     }
 
     legend_dict3 = {
-    '<=3445.39': '#d7191c',
-    '3445.39-5198.84': '#e85b3b',
-    '5198.84-6856.00': '#f99d59',
-    '6856.00-8639.95': '#fec980',
-    '8639.95-10735.26': '#ffedaa',
-    '10735.26-13484.62': '#ecf7b9',
-    '13484.62-17784.66': '#c7e8ad',
-    '17784.66-25662.77': '#9fd6aa',
-    '25662.77-51056.97': '#6dbac3',
-    '>51056.97': '#3b9edc',
+    '<= 4171.77': '#d7191c',
+    '4171.77 - 6219.96': '#e85b3b',
+    '6219.96 - 8259.70': '#f99d59',
+    '8259.70 - 10406.69': '#fec980',
+    '10406.69 - 13009.44': '#ffedaa',
+    '13009.44 - 16443.83': '#ecf7b9',
+    '16443.83 - 21929.96': '#c7e8ad',
+    '21929.96 - 31877.73': '#9fd6aa',
+    '31877.73 - 61049.99': '#6dbac3',
+    '> 61049.99': '#3b9edc',
     }
 
-    legend_dict2 = {
-    '<=2646.71': '#d7191c',
-    '2646.71-4048.04': '#e85b3b',
-    '4048.04-5390.93': '#f99d59',
-    '5390.93-6856.16': '#fec980',
-    '6856.16-8631.11': '#ffedaa',
-    '8631.11-11061.79': '#ecf7b9',
-    '11061.79-14825.25': '#c7e8ad',
-    '14825.25-21897.99': '#9fd6aa',
-    '21897.99-45514.67': '#6dbac3',
-    '> 45514.67': '#3b9edc',
+    legend_dict3 = {
+    '<= 9881.06': '#d7191c',
+    '9881.06 - 14572.30': '#e85b3b',
+    '14572.30 - 19120.42': '#f99d59',
+    '19120.42 - 24200.95': '#fec980',
+    '24200.95 - 29871.09': '#ffedaa',
+    '29871.09 - 36437.09': '#ecf7b9',
+    '36437.09 - 45209.22': '#c7e8ad',
+    '45209.22 - 58869.04': '#9fd6aa',
+    '58869.04 - 93513.95': '#6dbac3',
+    '> 93513.95': '#3b9edc',
     }
 
     legend_dict4 = {
-    '<= 8375.26': '#d7191c',
-    '8375.26-12518.90': '#e85b3b',
-    '12518.90-16529.46': '#f99d59',
-    '16529.46-20867.87': '#fec980',
-    '20867.87-25753.24': '#ffedaa',
-    '25753.24-31350.49': '#ecf7b9',
-    '31350.49-38933.38': '#c7e8ad',
-    '38933.38-51014.38': '#9fd6aa',
-    '51014.38-80834.01': '#6dbac3',
-    '> 80834.01': '#3b9edc',
+    '<= 8245.39': '#d7191c',
+    '8245.39 - 12316.40': '#e85b3b',
+    '12316.40 - 16169.24': '#f99d59',
+    '16169.24 - 20317.24': '#fec980',
+    '20317.24 - 25029.02': '#ffedaa',
+    '25029.02 - 30218.67': '#ecf7b9',
+    '30218.67 - 36635.56': '#c7e8ad',
+    '36635.56 - 46791.85': '#9fd6aa',
+    '46791.85 - 83103.22': '#6dbac3',
+    '> 83103.22': '#3b9edc',
     }
 
     legend_list = [
-            'Walking_only_travel_time',
-            'Health centre & Hospital',
-            'Level II health centre & Hospital',
-            'Level III health centre & Hospital',
+            'All Health Facilities',
+            'Level III health centre',
+            'Level IV health centre',
             'Level IV health centre & Hospital',
         ]
 
     legend = st.sidebar.selectbox(label="Select a legend", options=legend_list, index=legend_list.index('Walking_only_travel_time'))
     
-    if legend == 'Walking_only_travel_time':
+    if legend == 'All Health Facilities':
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict1)
-    elif legend == 'Health centre & Hospital':
-        m.add_legend(title="Travel Time", 
-                     legend_dict=legend_dict1)
-    elif legend == 'Level II health centre & Hospital':
+    elif legend == 'Level III health centre':
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict2)
-    elif legend == 'Level III health centre & Hospital':
+    elif legend == 'Level IV health centre':
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict3)
     elif legend == 'Level IV health centre & Hospital':
@@ -175,35 +158,29 @@ def app():
 def download():
     st.sidebar.markdown(" Select raster datasets you want to download 👉")
     
-    url1 = 'https://data.malariaatlas.org/maps'
-    url2 = 'https://stackoverflow.com'
-    url3 = 'https://datashare.ed.ac.uk/handle/10283/3957'
-    url4 = 'https://datashare.ed.ac.uk/handle/10283/3950'
-
+    url1 = 'https://datashare.ed.ac.uk/handle/10283/3956'
+    url2 = 'https://datashare.ed.ac.uk/handle/10283/3957'
+    url3 = 'https://datashare.ed.ac.uk/handle/10283/3950'  
+    url4 = 'https://datashare.ed.ac.uk/handle/10283/3954'
+    
     st.sidebar.markdown(f'''
-                        <a href = {url1}><button style="background-color:#C6E5F2">Walking only travel time</button></a>
+                        <a href = {url1}><button style="background-color:#C6E5F2">All Health Facilities</button></a>
                         ''',
     unsafe_allow_html=True)
 
 
     st.sidebar.markdown(f'''
 
-                        <a href={url2}><button style="background-color:#C6E5F2;">Health centre & Hospital</button></a>
-    ''',
-    unsafe_allow_html=True)
-
-    st.sidebar.markdown(f'''
-
-                        <a href={url2}><button style="background-color:#C6E5F2;">Level II Health centre & Hospital</button></a>
-    ''',
-    unsafe_allow_html=True)
-
-    st.sidebar.markdown(f'''
-
-                        <a href={url3}><button style="background-color:#C6E5F2;">Level III Health centre & Hospital</button></a>
+                        <a href={url2}><button style="background-color:#C6E5F2;">Level III Health centre</button></a>
         ''',
         unsafe_allow_html=True)
+    
+    st.sidebar.markdown(f'''
 
+                            <a href={url3}><button style="background-color:#C6E5F2;">Level IV Health centre</button></a>
+        ''',
+        unsafe_allow_html=True)
+    
     st.sidebar.markdown(f'''
 
                             <a href={url4}><button style="background-color:#C6E5F2;">Level IV Health centre & Hospital</button></a>
