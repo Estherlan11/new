@@ -18,7 +18,7 @@ def app():
 
 
     layer1 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:Uganda_100',
+                        layers = 'data:UGA_100_M',
                         transparent = True, 
                         control = True,
                         version = '1.1.1',
@@ -44,7 +44,7 @@ def app():
     fg2 = folium.FeatureGroup(name='Level III health centre', control=True)
 
     layer3 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                        layers = 'data:hos_IV',
+                        layers = 'data:h4',
                         transparent = True, 
                         control = True,
                         version = '1.1.1',
@@ -68,10 +68,11 @@ def app():
                         )
     fg4 = folium.FeatureGroup(name='Level IV health centre & Hospital', control=True)
     
-    fg1.add_child(layer1).add_to(m)
+    
     fg2.add_child(layer2).add_to(m)
     fg3.add_child(layer3).add_to(m)
     fg4.add_child(layer4).add_to(m)
+    fg1.add_child(layer1).add_to(m)
 
 
 
@@ -88,7 +89,7 @@ def app():
     '> 594.12': '#3b9edc',
     }
 
-    legend_dict3 = {
+    legend_dict2 = {
     '<= 4171.77': '#d7191c',
     '4171.77 - 6219.96': '#e85b3b',
     '6219.96 - 8259.70': '#f99d59',
