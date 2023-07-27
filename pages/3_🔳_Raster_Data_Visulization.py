@@ -54,7 +54,7 @@ def app():
                         show = True,
                         )
     
-    f3 = folium.FeatureGroup(name='Level IV health centre', control=True)
+    fg3 = folium.FeatureGroup(name='Level IV health centre', control=True)
     
     layer4 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
                         layers = 'data:h4h',
@@ -66,7 +66,7 @@ def app():
                         overlay = True,
                         show = True,
                         )
-    f4 = folium.FeatureGroup(name='Level IV health centre & Hospital', control=True)
+    fg4 = folium.FeatureGroup(name='Level IV health centre & Hospital', control=True)
     
     fg1.add_child(layer1).add_to(m)
     fg2.add_child(layer2).add_to(m)
