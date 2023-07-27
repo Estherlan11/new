@@ -27,7 +27,7 @@ def app():
                         overlay = True,
                         show = True,
                         )
-    fg1 = folium.FeatureGroup(name='All Health Facilities', control=True)
+    fg1 = folium.FeatureGroup(name='Any Health Facility', control=True)
     
     
     layer2 = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
@@ -134,9 +134,9 @@ def app():
             'Level IV health centre & Hospital',
         ]
 
-    legend = st.sidebar.selectbox(label="Select a legend", options=legend_list, index=legend_list.index('Walking_only_travel_time'))
+    legend = st.sidebar.selectbox(label="Select a legend", options=legend_list, index=legend_list.index('Any Health Facility'))
     
-    if legend == 'All Health Facilities':
+    if legend == 'Any Health Facility':
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict1)
     elif legend == 'Level III health centre':
@@ -164,7 +164,7 @@ def download():
     url4 = 'https://datashare.ed.ac.uk/handle/10283/3954'
     
     st.sidebar.markdown(f'''
-                        <a href = {url1}><button style="background-color:#C6E5F2">All Health Facilities</button></a>
+                        <a href = {url1}><button style="background-color:#C6E5F2">Any Health Facility</button></a>
                         ''',
     unsafe_allow_html=True)
 
