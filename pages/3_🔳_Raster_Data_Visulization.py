@@ -128,7 +128,7 @@ def app():
     }
 
     legend_list = [
-            'All Health Facilities',
+            'Any Health Facility',
             'Level III health centre',
             'Level IV health centre',
             'Level IV health centre & Hospital',
