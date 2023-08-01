@@ -156,7 +156,13 @@ def app():
        m.to_streamlit(width=800, height=700)
 
     with col2:
-        st.markdown('test')
+        st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
+                    This module presents the 100-metre resolution maps in raster format of travel time to the nearest health facility at 4 levels.</br> 
+                    The layer controller is located in the top right corner of the map window. </br>
+                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window .</br>  
+                    The travel time is measured in minutes. </br>
+                    You can quickly access and download the original data through the buttons on the left side of the page. </p> 
+        ''',unsafe_allow_html=True)
 
 def download():
     st.sidebar.markdown(" Select raster datasets you want to download 👉")

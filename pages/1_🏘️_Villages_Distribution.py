@@ -7,7 +7,8 @@ st.set_page_config(page_title="Uganda travel time",layout="wide")
 @st.cache_data
 
 def app():
-    
+
+    st.title("Village Distribution")
     col1, col2 = st.columns([4, 1])
     
 
@@ -30,7 +31,11 @@ def app():
         m.to_streamlit(width=700, height=650)
 
     with col2:
-        st.markdown('this is an introduction')
+        st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
+                    This section presents the spatial distribution of primary villages in Uganda.</br>
+                    You can adjust the view area using the zoom buttons in the top left corner or the mouse scroll wheel. </br>
+                    Click on points to access the detailed information of each village. </p> 
+        ''',unsafe_allow_html=True)
 
     
 if __name__ == "__main__":

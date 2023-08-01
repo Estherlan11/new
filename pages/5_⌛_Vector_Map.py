@@ -344,7 +344,13 @@ def app():
         
     )
         with col2:
-            st.markdown('test')
+             st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
+                    In this section, the travel time to the nearest health facility maps is displayed at diffrent map outputs.</br> 
+                    The travel time values are shown for level 3 administrative boundaries of Uganda. </br> 
+                    You can hover over a target district to obtain the average travel time to the nearest health facility in that area.</br>  
+                    You can select the required data to download through the selection box in the side bar. 
+                    Additionally, The attribute table of the selected dataset can be previewed through the chart section.</p>
+                    ''',unsafe_allow_html=True)
 
 if __name__ == "__main__":
     app()

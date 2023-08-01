@@ -7,6 +7,7 @@ st.set_page_config(page_title="Uganda travel time",layout='wide')
 
 def app():
 
+    st.title("Health Centres")
     col1, col2 = st.columns([4, 1])
 
 
@@ -39,7 +40,6 @@ def app():
     options = ['National and Regional Hospital', 'Hospital', 'Health Centre II',
                    'Health Centre III', 'Health Centre IV', 'Clinic']
 
-    # icon1 = 'https://em-content.zobj.net/thumbs/160/google/350/black-circle_26ab.png'
 
     empty_element = st.empty()
 
@@ -78,7 +78,13 @@ def app():
         m.to_streamlit(width=700, height=650)
     
     with col2:
-        st.markdown('test')
+         st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
+                    This map displays the spatial distribution of health facilities at different levels. </br>
+                    The data were categorized into six levels: National and Regional Hospitals,</br> Hospitals,</br> Level II Health Centers, </br>Level III Health Centers,</br> Level IV Health Centers, </br> Clinics. </br> 
+                    You can use the selection box on the left to add or remove layers.</br> 
+                    Click on points to access the detailed information of each health facility. </p>
+                     ''',unsafe_allow_html=True)
+
 
 if __name__ == '__main__':
     app()

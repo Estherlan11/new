@@ -84,7 +84,13 @@ def app():
         m.to_streamlit(width=700, height=650)
     
     with col2:
-        st.markdown('test')
+         st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
+                    This section features a split map for comparing the same dataset at different resolutions. </br> 
+                    The left layer displays Uganda Travel Time to any health facility Map Output at 20-meter resolution, while the right layer presents the data at 1000-meter resolution. </br>  
+                    The extent of both layers can be adjusted by moving the center axis.  </br>
+                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window .</br>  
+                    The travel time is measured in minutes. </p> 
+        ''',unsafe_allow_html=True)
     
 
 
