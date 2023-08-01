@@ -11,7 +11,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Uganda travel time", layout='wide')
 
-st.sidebar.markdown('Starting a long loading time cause the big data volume...')
+st.sidebar.markdown('Starting a long loading time please wait for a moment...')
 
 # Add a placeholder
 latest_iteration = st.sidebar.empty()
@@ -50,7 +50,7 @@ def save_file():
             "Travel Time to Level IV Health centre",
             "Travel Time to Level IV Health centre & Hospital"
         ]
-        ds_name = st.sidebar.selectbox(label="Select a dataset", options=file_paths)
+        ds_name = st.sidebar.selectbox(label="Select a dataset to dowload", options=file_paths)
         gdf = gpd.read_file("/home/lrx0914/geojsonfile/"+ds_name+".geojson")
 
         with tab2:

@@ -135,7 +135,9 @@ def app():
             'Level IV health centre & Hospital',
         ]
 
-    legend = st.sidebar.selectbox(label="Select a legend", options=legend_list, index=legend_list.index('Any Health Facility'))
+    legend = st.sidebar.selectbox(label="Select a legend", 
+                                  options=legend_list, 
+                                  index=legend_list.index('Any Health Facility'))
     
     if legend == 'Any Health Facility':
         m.add_legend(title="Travel Time", 

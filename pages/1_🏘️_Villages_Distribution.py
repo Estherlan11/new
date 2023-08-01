@@ -24,7 +24,7 @@ def app():
 
     boundry = '/home/lrx0914/boundry.geojson' 
 
-    m.add_geojson(boundry, layer_name="Boundary")
+    m.add_geojson(boundry, layer_name="Boundary",info_mode=None)
     
     with col1:
         m.to_streamlit(width=700, height=650)
