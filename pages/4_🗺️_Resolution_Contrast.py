@@ -6,10 +6,11 @@ st.set_page_config(page_title="Uganda travel time",layout='wide')
 
 def app():
 
-    col1, col2 = st.columns([4, 1])
-    
+    st.title("Raster Split Map")
 
-    m = leafmap.Map(center=[1.5,32], 
+    col1, col2 = st.columns([3.8, 1.5])
+    
+    m = leafmap.Map(center=[1.5, 32], 
                     zoom=7,
                     draw_control=False,
                     measure_control=False,
@@ -81,15 +82,20 @@ def app():
                      legend_dict=legend_dict2)
     
     with col1:
-        m.to_streamlit(width=700, height=650)
+        m.to_streamlit(width=720, height=650)
     
     with col2:
-         st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
-                    This section features a split map for comparing the same dataset at different resolutions. </br> 
-                    The left layer displays Uganda Travel Time to any health facility Map Output at 20-meter resolution, while the right layer presents the data at 1000-meter resolution. </br>  
-                    The extent of both layers can be adjusted by moving the center axis.  </br>
-                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window .</br>  
-                    The travel time is measured in minutes. </p> 
+         st.markdown('''
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    This section features a split map for comparing the same dataset at different resolutions.</li> </br> 
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The left layer displays Uganda Travel Time to any health facility Map Output at 20-meter resolution, while the right layer presents the data at 1000-meter resolution.</li> </br>  
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The extent of both layers can be adjusted by moving the center axis. </li> </br>
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window.</li> </br>  
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The travel time is measured in minutes. </li> 
         ''',unsafe_allow_html=True)
     
 

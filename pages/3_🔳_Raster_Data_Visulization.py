@@ -8,9 +8,9 @@ st.set_page_config(page_title="Uganda travel time", layout='wide')
 def app():
 
     st.title("Raster Datasets")
-    col1, col2 = st.columns([4, 1])
+    col1, col2 = st.columns([3.8, 1.5])
 
-    m = leafmap.Map(center=[1.5, 32], 
+    m = leafmap.Map(center=[1.5, 33], 
                     zoom=7, 
                     draw_control=False,
                     measure_control=False,
@@ -95,8 +95,8 @@ def app():
     '6219.96 - 8259.70': '#f99d59',
     '8259.70 - 10406.69': '#fec980',
     '10406.69 - 13009.44': '#ffedaa',
-    '13009.44 - 16443.83': '#ecf7b9',
-    '16443.83 - 21929.96': '#c7e8ad',
+    '13009.44 - 17443.83': '#ecf7b9',
+    '17443.83 - 21929.96': '#c7e8ad',
     '21929.96 - 31877.73': '#9fd6aa',
     '31877.73 - 61049.99': '#6dbac3',
     '> 61049.99': '#3b9edc',
@@ -117,9 +117,9 @@ def app():
 
     legend_dict4 = {
     '<= 8245.39': '#d7191c',
-    '8245.39 - 12316.40': '#e85b3b',
-    '12316.40 - 16169.24': '#f99d59',
-    '16169.24 - 20317.24': '#fec980',
+    '8245.39 - 12317.40': '#e85b3b',
+    '12317.40 - 17179.24': '#f99d59',
+    '17179.24 - 20317.24': '#fec980',
     '20317.24 - 25029.02': '#ffedaa',
     '25029.02 - 30218.67': '#ecf7b9',
     '30218.67 - 36635.56': '#c7e8ad',
@@ -153,15 +153,21 @@ def app():
                      legend_dict=legend_dict4)
     
     with col1:
-       m.to_streamlit(width=800, height=700)
+       m.to_streamlit(width=720, height=650)
 
     with col2:
-        st.markdown('''<p style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
-                    This module presents the 100-metre resolution maps in raster format of travel time to the nearest health facility at 4 levels.</br> 
-                    The layer controller is located in the top right corner of the map window. </br>
-                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window .</br>  
-                    The travel time is measured in minutes. </br>
-                    You can quickly access and download the original data through the buttons on the left side of the page. </p> 
+        st.markdown('''
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    This module presents the 100-metre resolution maps in raster format of travel time to the nearest health facility at 4 levels.</li> 
+                    </br>
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The layer controller is located in the top right corner of the map window. </li></br>
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The legend corresponding to each layer can be selected in the left function area.It is movable in the map window .</li></br>  
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    The travel time is measured in minutes. </li></br>
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    You can quickly access and download the original data through the buttons on the left side of the page. </li> 
         ''',unsafe_allow_html=True)
 
 def download():
