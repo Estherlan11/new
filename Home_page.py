@@ -1,11 +1,19 @@
+'''
+The home page and add all pages in the navigation bar
+'''
+
+#############################################################
+#import necesary packges
 import streamlit as st
 
-
+#############################################################
+#set the whole page layout and navigation bar
 st.set_page_config(
     page_title="Uganda Travel Time",
     page_icon="👋",
     layout="wide")
 
+#adjust the sidebar layout
 col3, col4= st.sidebar.columns([1, 7])
 
 with col3:
@@ -14,17 +22,19 @@ with col3:
 with col4:
    st.image("Figure/earth.png",width=150)
 
+#add the text part in sidebar
 st.sidebar.title("Contribution")
 st.sidebar.info(
             """
             This web app is developed based on Streamlit URL: <https://streamlit.geemap.org>
         """
         )
-st.sidebar.markdown("<a href='http://google.com.au/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/edinburgh.png?raw=true' style='width: 240px;'></a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='https://www.ed.ac.uk/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/edinburgh.png?raw=true' style='width: 240px;'></a>", unsafe_allow_html=True)
 
 
 st.title('Welcome to this Uganda Travel Time Spatial Datasets Visualization Platform')
 
+#insert containers with different elements separated into tabs on the top of the page
 tab1, tab2 = st.tabs(["Introduction","Disclaimer and Acknowledgement"])
 
 with tab1:
@@ -32,7 +42,7 @@ with tab1:
     '</br><p style="font-family:sans-serif; color:#3b3a37; font-size: 32px;"><b>Introduction</b></p>',
     unsafe_allow_html=True)
 
-
+    #add the style of URLs
     st.markdown("""
     <style>
     .link {
@@ -41,7 +51,8 @@ with tab1:
     }
     </style>
     """, unsafe_allow_html=True)
-
+    
+    #add the text of intro
     st.markdown('''
             <p style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;"> 
             <a class="link", href="https://www.nature.com/articles/s41597-022-01274-w#citeas">The previous study</a>
@@ -52,15 +63,7 @@ with tab1:
             ''', 
             unsafe_allow_html=True)
 
-    col1, col2= st.columns([1, 7])
-
-    with col1:
-        st.write(' ')
-
-    with col2:
-        st.image("Figure/data.png", width=800)
-
-
+    st.markdown("<img src='https://github.com/Estherlan11/new/blob/main/Figure/data.png?raw=true' div align=center style='width: 800px;'></img>", unsafe_allow_html=True)
 
 
     st.markdown('''
@@ -94,12 +97,13 @@ with tab1:
             ''', 
             unsafe_allow_html=True)
 
+#add the Disclaimer and Acknowledgement sections
 with tab2:
     
     st.markdown(
     '</br><p style="font-family:sans-serif; color:#3b3a37; font-size: 32px;"><b>Disclaimer</b></p>',
     unsafe_allow_html=True)
-     
+    
     st.markdown('''
                 <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
                 Any content (e.g., images, published data, domain names, etc.) displayed on the web pages of this website is the sole ownership of the original authors.</li>
@@ -120,7 +124,8 @@ with tab2:
                 <li style="font-family:sans-serif; color:#3b3a37; font-size: 22px;">
                 <b>With special thanks to: </b></li>
                 ''', unsafe_allow_html=True)
-    
+
+    #set the page layout and add all the libraries used and their links
     col5, col6, col20= st.columns([1.5,1.5,4])
 
     with col5:
@@ -145,6 +150,7 @@ with tab2:
         st.write(' ')  
     st.write(' ')
 
+    #set the page layout and add all the data sources and their links
     st.markdown('''
                 <li style="font-family:sans-serif; color:#3b3a37; font-size: 22px;">
                 <b>All the data source are from: </b></li>

@@ -1,21 +1,33 @@
+'''
+An app to publish the point adat of settlements distribution 
+'''
+
+#############################################################
+#import necesary packges
+
 import streamlit as st
 import folium
 import leafmap.foliumap as leafmap
 
+#############################################################
+#set the whole page layout and navigation bar
 st.set_page_config(page_title="Uganda travel time",layout='wide')
 
 def app():
-
+    
+    #set the layout and title
     st.title("Raster Split Map")
 
     col1, col2 = st.columns([3.8, 1.5])
     
+    #add a map viewer and set the paraments
     m = leafmap.Map(center=[1.5, 32], 
                     zoom=7,
                     draw_control=False,
                     measure_control=False,
                     attribution_control=True)
-    
+
+    #call the left_layer WMS request from GeoServer
     left_layer = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
                             layers = 'data:Uganda_100_tra',
                             transparent = True, 
@@ -26,7 +38,7 @@ def app():
                             overlay = True,
                             show = True,
                             )
-
+    #call the left_layer WMS request from GeoServer
     right_layer = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
                             layers = 'data:Uganda_1km_tra',
                             transparent = True, 
@@ -38,9 +50,10 @@ def app():
                             show = True,
                             )
 
+    #add the two layers on the map viewer
     m.split_map(left_layer, right_layer)
 
-    legend_dict1 = {
+    legend_dict1 = {                    #add the legend information of layers
     '<= 39.45': '#d7191c',
     '39.45 - 59.76': '#e85b3b',
     '59.76 - 79.89': '#f99d59',
@@ -70,10 +83,12 @@ def app():
             '20m Resolution',
             '1000m Resolution',
         ]
+    #design a selection box in sidebar to choose the legends
     legend = st.sidebar.selectbox(label="Select a legend", 
                                   options=legend_list, 
                                   index=legend_list.index('20m Resolution'))
     
+    #add the movable legends into the map viewer
     if legend == '20m Resolution':
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict1)
@@ -81,9 +96,11 @@ def app():
         m.add_legend(title="Travel Time", 
                      legend_dict=legend_dict2)
     
+    #display the map window in the platform
     with col1:
         m.to_streamlit(width=720, height=650)
     
+    #add introduction part in HTML
     with col2:
          st.markdown('''
                     <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
@@ -98,8 +115,9 @@ def app():
                     The travel time is measured in minutes. </li> 
         ''',unsafe_allow_html=True)
     
-
-
     
-if __name__ == "__main__":
+#############################################################
+
+if __name__ == '__main__':
+    '''Main block'''
     app()
