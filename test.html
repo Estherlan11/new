@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance API Example</title>
+</head>
+<body>
+    <h1>Performance API Example</h1>
+    <script>
+        // Start monitoring the page load time
+        const startTime = performance.now();
+
+        // Send a request to fetch the specified URL's resources
+        fetch('http://localhost:8080/geoserver/mock1/wms?service=WMS&version=1.1.0&request=GetMap&layers=mock1%3AUGA_100_M&bbox=29.572420635%2C-1.4811507940000004%2C35.000992063%2C4.231150792700291&width=729&height=768&srs=EPSG%3A4326&styles=&format=application/openlayers')
+        .then(response => {
+            // Calculate the resource load time
+            const resourceLoadTime = performance.now() - startTime;
+            console.log('Resource Load Time: ' + resourceLoadTime + ' milliseconds');
+
+            // Read the returned resource as text
+            return response.text();
+        })
+        .then(data => {
+            // Calculate the page render time
+            const pageRenderTime = performance.now() - startTime;
+            console.log('Page Render Time: ' + pageRenderTime + ' milliseconds');
+        })
+        .catch(error => {
+            console.error('Error: ' + error);
+        });
+    </script>
+</body>
+</html>
+

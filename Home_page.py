@@ -20,6 +20,8 @@ st.sidebar.info(
             This web app is developed based on Streamlit URL: <https://streamlit.geemap.org>
         """
         )
+st.sidebar.markdown("<a href='http://google.com.au/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/edinburgh.png?raw=true' style='width: 240px;'></a>", unsafe_allow_html=True)
+
 
 st.title('Welcome to this Uganda Travel Time Spatial Datasets Visualization Platform')
 
@@ -114,23 +116,75 @@ with tab2:
     '</br><p style="font-family:sans-serif; color:#3b3a37; font-size: 32px;"><b>Contribution</b></p>',
     unsafe_allow_html=True)
     
-    st.markdown("<a href='http://google.com.au/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/earth.png?raw=true' style='width: 200px;'></a>", unsafe_allow_html=True)
+    st.markdown('''
+                <li style="font-family:sans-serif; color:#3b3a37; font-size: 22px;">
+                <b>With special thanks to: </b></li>
+                ''', unsafe_allow_html=True)
+    
+    col5, col6, col20= st.columns([1.5,1.5,4])
 
+    with col5:
+        st.markdown("<a href='https://www.esri.com/en-us/home'><img src='https://github.com/Estherlan11/new/blob/main/Figure/ArcGIS_logo.png?raw=true' style='width: 150px;'></a>", unsafe_allow_html=True)
+
+    with col6:
+        st.markdown("<a href='https://leafmap.org/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/leafmap_logo.png?raw=true' style='width: 135px;'></a>", unsafe_allow_html=True)
     
+    with col20:
+        st.write(' ')
     
-    st.markdown(
-    '</br><p style="font-family:sans-serif; color:#3b3a37; font-size: 32px;"><b>Acknowledgement</b></p>',
-    unsafe_allow_html=True)
+    col7, col8, col9, col30= st.columns([2,2,2,4])
+
+    with col8:   
+        st.markdown("<a href='https://geoserver.org/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/geoserver_logo.png?raw=true' style='width: 200px;'></a>", unsafe_allow_html=True)
+    with col9:
+        st.markdown("<a href='https://streamlit.io/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/streamlit.png?raw=true' style='width: 200px;'></a>", unsafe_allow_html=True)
+    with col7:    
+        st.markdown("<a href='https://leafletjs.com/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/Leaflet.png?raw=true' style='width: 200px;'></a>" , unsafe_allow_html=True)
+
+    with col30:
+        st.write(' ')  
+    st.write(' ')
 
     st.markdown('''
-                <p style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
-                We express our gratitude for your usage of this website. Thank you for your support and trust. </br>
-                Any concerns, questions, ideas, or criticism on this website please do not hesitate to reach out to me 
-                <a href="mailto:R.Lan-1@sms.ed.ac.uk"><img src= style='width: 30px;'></a>"
-                <a href="mailto:R.Lan-1@sms.ed.ac.uk"><img src="Figure/email.png" width="100"></a>.</br>
-                Your feedback is highly valuable to us since it allows us to continually develop and improve this website. </br>
-                Thank you for visiting our website again, and hope you have a pleasant and meaningful experience here! </p>
-                ''', 
-            unsafe_allow_html=True)
+                <li style="font-family:sans-serif; color:#3b3a37; font-size: 22px;">
+                <b>All the data source are from: </b></li>
+                ''', unsafe_allow_html=True)
+    st.write(' ')
+
+    col10, col11, col40= st.columns([1,1,2])
+    with col10:
+        st.markdown("<a href='https://datashare.ed.ac.uk'><img src='https://github.com/Estherlan11/new/blob/main/Figure/datashare.png?raw=true' style='width: 200px;'></a>", unsafe_allow_html=True)
     
-    
+    with col11: 
+        st.write(' ')  
+        st.markdown("<a href='https://data.humdata.org/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/hdx_new_logo_accronym.png?raw=true' style='width: 200px;'></a>", unsafe_allow_html=True)
+    with col40:
+        st.write(' ') 
+
+    col12, col13, col50= st.columns([1,1,2])     
+    with col12:
+        st.write(' ')
+        st.write(' ')
+        st.markdown("<a href='https://springernature.figshare.com/ '><img src='https://github.com/Estherlan11/new/blob/main/Figure/logo%20health.png?raw=true' style='width: 160px;'></a>", unsafe_allow_html=True)
+    with col13:
+        st.markdown("<a href='https://gadm.org/'><img src='https://github.com/Estherlan11/new/blob/main/Figure/GAMD.png?raw=true' style='width: 120px;'></a>", unsafe_allow_html=True)
+
+    with col50:
+        st.write(' ')   
+    st.write(' ')
+
+    st.markdown(
+        '</br><p style="font-family:sans-serif; color:#3b3a37; font-size: 32px;"><b>Acknowledgement</b></p>',
+        unsafe_allow_html=True)
+
+    st.markdown('''
+                    <p style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    We express our gratitude for your usage of this website. Thank you for your support and trust. </br>
+                    Any concerns, questions, ideas, or criticism on this website please do not hesitate to reach out to me 
+                    <a href="mailto:R.Lan-1@sms.ed.ac.uk"><img src= 'https://github.com/Estherlan11/new/blob/main/Figure/email.png?raw=true' style='width: 30px;'></a>.</br>
+                    Your feedback is highly valuable to us since it allows us to continually develop and improve this website. </br>
+                    Thank you for visiting our website again, and hope you have a pleasant and meaningful experience here! </p>
+                    ''', 
+                unsafe_allow_html=True)
+        
+        
