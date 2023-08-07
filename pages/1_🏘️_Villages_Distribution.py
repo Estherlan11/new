@@ -3,8 +3,7 @@ An app to publish the point data of settlements distribution
 '''
 
 #############################################################
-
-#import necesary packges
+#import necessary packages
 
 import leafmap.foliumap as leafmap
 import streamlit as st

@@ -3,7 +3,7 @@ An app to publish the point adat of settlements distribution
 '''
 
 #############################################################
-#import necesary packges
+#import necessary packages
 
 import streamlit as st
 import folium

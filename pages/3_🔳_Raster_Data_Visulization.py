@@ -3,7 +3,7 @@ An app to publish the raster data layers
 '''
 
 #############################################################
-#import necesary packges
+#import necessary packages
 
 import streamlit as st
 import leafmap.foliumap as leafmap

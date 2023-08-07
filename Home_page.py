@@ -3,7 +3,7 @@ The home page and add all pages in the navigation bar
 '''
 
 #############################################################
-#import necesary packges
+#import necessary packages
 import streamlit as st
 
 #############################################################

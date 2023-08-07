@@ -3,7 +3,7 @@ An app to publish the vector data
 '''
 
 #############################################################
-#import necesary packges
+#import necessary packages
 
 import leafmap.foliumap as leafmap
 import streamlit as st
