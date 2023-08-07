@@ -63,7 +63,7 @@ with tab1:
             ''', 
             unsafe_allow_html=True)
 
-    st.markdown("<div align='center'><img src='https://github.com/Estherlan11/new/blob/main/Figure/plot.png?raw=true' style='width: 800px;'> </div>", unsafe_allow_html=True)
+    st.markdown("<div align='center'><img src='https://github.com/Estherlan11/new/blob/main/Figure/data.png?raw=true' style='width: 800px;'> </div>", unsafe_allow_html=True)
 
 
     st.markdown('''
