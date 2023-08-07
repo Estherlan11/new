@@ -40,9 +40,9 @@ st.sidebar.markdown('...and now we\'re done!')
 tab1, tab2 = st.tabs(["🎨Map","📈Chart"])
 
 #############################################################
-'''
-write a function to transform the data from Geodataframe to Shapefile
-'''
+
+# write a function to transform the data from Geodataframe to Shapefile
+
 
 def gdf_to_shp(gdf, name):
     #set a temporary directory to store the shapefiles
@@ -62,9 +62,9 @@ def gdf_to_shp(gdf, name):
         return zip
 
 #############################################################
-'''
-write a function to download files
-'''  
+
+# write a function to download files
+
 def save_file():
     #insert the file paths
         file_paths = [
@@ -97,14 +97,14 @@ def save_file():
                     on_click=None 
             )
 #############################################################
-'''
-write a function to add the vector layers using WMTS
-'''  
+
+# write a function to add the vector layers using WMTS
+ 
 def app():
     #set the layout
     with tab1:
         
-        col1, col2 = st.columns([3,1])
+        col1, col2 = st.columns([2.8, 1.2])
     
     #using 'components.html' function to add the layers with HTML language
         with col1:
@@ -161,8 +161,7 @@ def app():
         <style>
             #map {
                 position: relative;
-                //width: 720.0px;
-                height: 650.0px;
+                height: 700.0px;
                 left: 0.0%;
                 top: 0.0%;
             }
@@ -410,19 +409,19 @@ def app():
                     ''',
 
         #set the map window size and display it in the platform
-        height=650, scrolling=True
+        height=700, scrolling=True
         
     )
         #add introduction part in HTML
         with col2:
              st.markdown('''
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 19px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     In this section, the travel time to the nearest health facility maps is displayed at diffrent map outputs.</li> </br> 
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 19px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     The travel time values are shown for level 3 administrative boundaries of Uganda. </li> </br> 
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 19px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     You can hover over a target district to obtain the average travel time to the nearest health facility in that area.</li></br>  
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 19px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     You can select the required data to download through the selection box in the side bar. </br>
                     Additionally, the attribute table of the selected dataset can be previewed through the chart section.</li> </br> 
                     ''',unsafe_allow_html=True)
@@ -431,8 +430,9 @@ def app():
 #############################################################
 
 if __name__ == '__main__':
-    '''Main block'''
-    #run the functions
+
+    # Main block
+    # run the functions
     app()
     save_file()
 

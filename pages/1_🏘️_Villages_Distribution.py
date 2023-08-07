@@ -22,7 +22,7 @@ def app():
 
     #set the layout
     st.title("Village Distribution")
-    col1, col2 = st.columns([3.8, 1.5])
+    col1, col2 = st.columns([2.8, 1.2])
     
     #add a map window and set the paraments
 
@@ -46,19 +46,19 @@ def app():
     m.add_geojson(boundry, layer_name="Boundary",info_mode=None)
     
     with col1:
-        m.to_streamlit(width=720, height=650)
+        m.to_streamlit(height=700)
 
     #add introduction part
     with col2:
-        st.markdown('''<li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+        st.markdown('''<li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     This section presents the spatial distribution of primary villages in Uganda.</li></br>
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     You can adjust the view area using the zoom buttons in the top left corner or the mouse scroll wheel. </li></br>
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     Click on points to access the detailed information of each village. </li> 
         ''',unsafe_allow_html=True)
 
 #############################################################
 if __name__ == "__main__":
-    '''Main block'''
+    # Main block
     app()

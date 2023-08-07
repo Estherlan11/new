@@ -20,7 +20,7 @@ def app():
 
     #set the layout and title 
     st.title("Health Centres")
-    col1, col2 = st.columns([3.8, 1.5])
+    col1, col2 = st.columns([2.8, 1.2])
 
     #add a map viewer and set the paraments
     m = leafmap.Map(center=[1.5, 32], 
@@ -88,7 +88,7 @@ def app():
     m.add_geojson(boundry, layer_name="Boundary", info_mode=None)
 
     with col1:
-        m.to_streamlit(width=720, height=650)
+        m.to_streamlit(height=700)
     
     #add introduction part in HTML
     with col2:
@@ -104,5 +104,5 @@ def app():
 
 #############################################################
 if __name__ == '__main__':
-    '''Main block'''
+    # Main block
     app()

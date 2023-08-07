@@ -170,7 +170,7 @@ def app():
    
     #display the map window in the platform
     with col1:
-       m.to_streamlit(height=650)
+       m.to_streamlit(height=700)
 
     #add introduction part in HTML
     with col2:
@@ -189,9 +189,9 @@ def app():
         ''',unsafe_allow_html=True)
 
 #############################################################
-'''
-write a function to achieve datasets download
-'''
+
+# write a function to achieve datasets download
+
 
 def download():
     st.sidebar.markdown(" Select raster datasets you want to download 👉")
@@ -230,8 +230,8 @@ def download():
 #############################################################
 
 if __name__ == '__main__':
-    '''Main block'''
-    #run the functions
+    # Main block
+    # run the functions
     app()
     download()
 

@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide")
 
 #adjust the sidebar layout
-col3, col4= st.sidebar.columns([1, 7])
+col3, col4= st.sidebar.columns([1.5, 7])
 
 with col3:
     st.write(' ')
@@ -63,7 +63,7 @@ with tab1:
             ''', 
             unsafe_allow_html=True)
 
-    st.markdown("<img src='https://github.com/Estherlan11/new/blob/main/Figure/data.png?raw=true' div align=center style='width: 800px;'></img>", unsafe_allow_html=True)
+    st.markdown("<div align='center'><img src='https://github.com/Estherlan11/new/blob/main/Figure/data.png?raw=true' style='width: 800px;'> </div>", unsafe_allow_html=True)
 
 
     st.markdown('''

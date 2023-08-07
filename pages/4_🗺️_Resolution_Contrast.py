@@ -18,7 +18,7 @@ def app():
     #set the layout and title
     st.title("Raster Split Map")
 
-    col1, col2 = st.columns([3.8, 1.5])
+    col1, col2 = st.columns([2.8, 1.2])
     
     #add a map viewer and set the paraments
     m = leafmap.Map(center=[1.5, 32], 
@@ -98,20 +98,20 @@ def app():
     
     #display the map window in the platform
     with col1:
-        m.to_streamlit(width=720, height=650)
+        m.to_streamlit(height=700)
     
     #add introduction part in HTML
     with col2:
          st.markdown('''
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     This section features a split map for comparing the same dataset at different resolutions.</li> </br> 
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     The left layer displays Uganda Travel Time to any health facility Map Output at 20-meter resolution, while the right layer presents the data at 1000-meter resolution.</li> </br>  
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     The extent of both layers can be adjusted by moving the center axis. </li> </br>
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     The legend corresponding to each layer can be selected in the left function area.It is movable in the map window.</li> </br>  
-                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 17px; text-align:justify;">
+                    <li style="font-family:sans-serif; color:#3b3a37; font-size: 18px; text-align:justify;">
                     The travel time is measured in minutes. </li> 
         ''',unsafe_allow_html=True)
     
@@ -119,5 +119,5 @@ def app():
 #############################################################
 
 if __name__ == '__main__':
-    '''Main block'''
+    # Main block
     app()
