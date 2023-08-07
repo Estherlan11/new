@@ -29,7 +29,7 @@ def app():
 
     #call the left_layer WMS request from GeoServer
     left_layer = folium.WmsTileLayer(url = 'http://34.147.148.225:8080/geoserver/wms?',
-                            layers = 'data:Uganda_100_tra',
+                            layers = 'data:pryamid',
                             transparent = True, 
                             control = True,
                             version = '1.1.1',
@@ -54,16 +54,16 @@ def app():
     m.split_map(left_layer, right_layer)
 
     legend_dict1 = {                    #add the legend information of layers
-    '<= 39.45': '#d7191c',
-    '39.45 - 59.76': '#e85b3b',
-    '59.76 - 79.89': '#f99d59',
-    '79.89 - 98.57': '#fec980',
-    '98.57 - 118.48': '#ffedaa',
-    '118.48 - 142.98': '#ecf7b9',
-    '142.98 - 182.67': '#c7e8ad',
-    '182.67 - 336.82': '#9fd6aa',
-    '336.82 - 594.12': '#6dbac3',
-    '> 594.12': '#3b9edc',
+    '<= 44.49': '#d7191c',
+    '44.49-65.98': '#e85b3b',
+    '65.98-87.71': '#f99d59',
+    '87.71-111.82': '#fec980',
+    '111.82-148.29': '#ffedaa',
+    '148.29-197.14': '#ecf7b9',
+    '197.14-248.34': '#c7e8ad',
+    '248.34-416.46': '#9fd6aa',
+    '416.46-794.02': '#6dbac3',
+    '> 794.02': '#3b9edc',
     }
 
     legend_dict2 = {
