@@ -13,8 +13,6 @@ import pandas as pd
 #set the whole page layout and navigation bar
 st.set_page_config(page_title="Uganda travel time",layout='wide')
 
-#cache the data
-@st.cache_data
 
 def app():
 
