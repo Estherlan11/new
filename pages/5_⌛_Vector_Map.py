@@ -75,7 +75,7 @@ def save_file():
         ]
         #add a selection box for users to choose the target download file
         ds_name = st.sidebar.selectbox(label="Select a dataset to dowload", options=file_paths)
-        gdf = gpd.read_file("/home/lrx0914/geojsonfile/"+ds_name+".geojson")
+        gdf = gpd.read_file("/mnt/disks/storage/geojsonfile/"+ds_name+".geojson")
 
         #design a page to preview the downloading data attribute table and map image
         with tab2:
@@ -86,7 +86,7 @@ def save_file():
                 st.pyplot(gdf.plot().figure)
 
         #input all the download data sources in geojson format
-        zip = gdf_to_shp(gdf, "/home/lrx0914/"+ds_name+".geojson")
+        zip = gdf_to_shp(gdf, "/mnt/disks/storage/"+ds_name+".geojson")
         #read the data sources according to the file name
         with st.empty():
             with open(zip, "rb") as file:
